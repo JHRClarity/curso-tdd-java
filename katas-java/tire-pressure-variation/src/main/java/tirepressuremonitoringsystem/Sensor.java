@@ -2,20 +2,22 @@ package tirepressuremonitoringsystem;
 
 import java.util.Random;
 
-public class Sensor {
-    public static final double OFFSET = 16;
+public class Sensor implements ISensor {
 
-    public double popNextPressurePsiValue() {
-        double pressureTelemetryValue;
-        pressureTelemetryValue = samplePressure();
+  public static final double OFFSET = 16;
 
-        return OFFSET + pressureTelemetryValue;
-    }
+  @Override
+  public double popNextPressurePsiValue() {
+    double pressureTelemetryValue;
+    pressureTelemetryValue = samplePressure();
 
-    private static double samplePressure() {
-        // placeholder implementation that simulate a real sensor in a real tire
-        Random basicRandomNumbersGenerator = new Random();
-        double pressureTelemetryValue = 6 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
-        return pressureTelemetryValue;
-    }
+    return OFFSET + pressureTelemetryValue;
+  }
+
+  private static double samplePressure() {
+    // placeholder implementation that simulate a real sensor in a real tire
+    Random basicRandomNumbersGenerator = new Random();
+    double pressureTelemetryValue = 6 * basicRandomNumbersGenerator.nextDouble() * basicRandomNumbersGenerator.nextDouble();
+    return pressureTelemetryValue;
+  }
 }
